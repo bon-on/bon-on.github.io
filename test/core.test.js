@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import { games } from '../games.js';
 import { normalizeScoreInput, sortAndLimitScores } from '../core.js';
 
@@ -34,4 +35,11 @@ test('older record wins a tied score', () => {
     { score: 100, played_at: '2026-02-01T00:00:00Z' },
   ]);
   assert.equal(result[0].played_at, '2026-02-01T00:00:00Z');
+});
+
+test('landing page leads directly with a concise game selection', async () => {
+  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  assert.doesNotMatch(html, /잠깐의 틈|SIX SMALL WORLDS|class="hero"/);
+  assert.match(html, /Bon-on의 게임을 골라 바로 플레이하고 순위를 확인하세요\./);
+  assert.ok(html.indexOf('id="games"') < html.indexOf('id="game-grid"'));
 });
