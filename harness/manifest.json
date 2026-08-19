@@ -1,0 +1,39 @@
+{
+  "version": "1",
+  "repoName": "bon-on.github.io",
+  "description": "Bon-on GitHub Pages game hub with shared Supabase leaderboards.",
+  "policyMode": "warn-block-critical",
+  "stackSummary": "Build-free static HTML/CSS/JavaScript on GitHub Pages with Supabase Data API",
+  "sourcePriority": [
+    "feature spec",
+    "related adr",
+    "repo constraints",
+    "golden rules",
+    "general repo context"
+  ],
+  "detectedProfiles": [],
+  "suggestedPacks": [],
+  "approvedPacks": [],
+  "detectedSignals": [],
+  "paths": {
+    "rulesDir": "harness/rules",
+    "specsDir": "harness/specs",
+    "adrsDir": "harness/adrs",
+    "contractsDir": "harness/contracts",
+    "templatesDir": "harness/templates",
+    "reportsDir": "reports"
+  },
+  "requiredFiles": [
+    "harness/rules/golden-rules.md",
+    "harness/rules/constraints.md",
+    "harness/templates/feature-spec.md",
+    "harness/templates/adr.md",
+    "harness/templates/contract.md"
+  ],
+  "criticalChecks": [
+    "manifest-present",
+    "golden-rules-present",
+    "constraints-present",
+    "feature-spec-has-acceptance"
+  ]
+}
