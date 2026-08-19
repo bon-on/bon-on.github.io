@@ -45,7 +45,6 @@ Content-Type: application/json
 
 허용된 `game_id`는 `games.js`와 SQL migration에 함께 정의되어 있습니다. 현재 포털에서도 수동으로 이름과 점수를 등록할 수 있습니다.
 
-기존 Supabase 프로젝트에는 migration 파일을 번호 순서대로 실행해야 합니다. `002_remove_swipe_stack.sql`은 SwipeStack 기록과 허용 식별자를 제거합니다.
 
 ## 검증 및 배포
 
