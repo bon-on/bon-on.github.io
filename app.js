@@ -9,8 +9,6 @@ const tabs = document.querySelector('#ranking-tabs');
 const list = document.querySelector('#ranking-list');
 const state = document.querySelector('#ranking-state');
 const title = document.querySelector('#ranking-title');
-const form = document.querySelector('#score-form');
-const formMessage = document.querySelector('#form-message');
 let selectedGame = games[0];
 
 for (const game of games) {
@@ -46,7 +44,6 @@ async function selectGame(game) {
   tabs.querySelectorAll('button').forEach((button) => {
     button.setAttribute('aria-current', String(button.dataset.game === game.id));
   });
-  formMessage.textContent = '';
   await loadScores();
 }
 
@@ -54,11 +51,10 @@ async function loadScores() {
   list.replaceChildren();
   state.hidden = false;
   state.textContent = client.configured ? '순위를 불러오는 중…' : '랭킹 서비스를 준비하고 있어요. 게임은 지금 바로 플레이할 수 있습니다.';
-  form.hidden = !client.configured;
   if (!client.configured) return;
 
   try {
-    const scores = await client.list(selectedGame.id);
+    const scores = await client.list(selectedGame.id, selectedGame.metric);
     state.hidden = scores.length > 0;
     state.textContent = scores.length ? '' : '첫 번째 기록의 주인공이 되어보세요.';
     scores.forEach((score, index) => {
@@ -66,7 +62,7 @@ async function loadScores() {
       item.innerHTML = `
         <span class="rank-number">${index + 1}</span>
         <span class="rank-player"><strong></strong><small>${formatPlayedDate(score.played_at)}</small></span>
-        <span class="rank-score">${Number(score.score).toLocaleString()}</span>`;
+        <span class="rank-score">${formatResult(score.score, selectedGame.metric)}</span>`;
       item.querySelector('strong').textContent = score.player_name;
       list.append(item);
     });
@@ -93,22 +89,8 @@ dialog.addEventListener('click', (event) => {
   if (event.target === dialog) dialog.close();
 });
 
-form.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  const submitButton = form.querySelector('button[type="submit"]');
-  submitButton.disabled = true;
-  formMessage.textContent = '기록을 등록하는 중…';
-  try {
-    await client.submit(selectedGame.id, form.elements.name.value, form.elements.score.value);
-    localStorage.setItem('bonOnPlayerName', form.elements.name.value.trim());
-    form.elements.score.value = '';
-    formMessage.textContent = '기록을 등록했어요!';
-    await loadScores();
-  } catch (error) {
-    formMessage.textContent = error.message;
-  } finally {
-    submitButton.disabled = false;
-  }
-});
-
-form.elements.name.value = localStorage.getItem('bonOnPlayerName') || '';
+function formatResult(value, metric) {
+  const number = Number(value);
+  if (metric !== 'time') return number.toLocaleString();
+  return `${Math.floor(number / 60)}:${String(number % 60).padStart(2, '0')}`;
+}

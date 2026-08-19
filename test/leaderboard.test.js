@@ -21,10 +21,10 @@ test('submit uses the constrained RPC and publishable key', async () => {
     request = { url, options };
     return new Response('null', { status: 200 });
   });
-  await client.submit('tiny-mines', 'Miner', 321);
-  assert.match(request.url, /rpc\/submit_score$/);
+  await client.submit('tiny-mines', 'Miner', 321, 'time');
+  assert.match(request.url, /rpc\/submit_result$/);
   assert.equal(request.options.headers.apikey, 'public-key');
   assert.deepEqual(JSON.parse(request.options.body), {
-    p_game_id: 'tiny-mines', p_player_name: 'Miner', p_score: 321,
+    p_game_id: 'tiny-mines', p_player_name: 'Miner', p_value: 321, p_metric: 'time',
   });
 });

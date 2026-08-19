@@ -46,20 +46,11 @@
         <div class="ranking-state" id="ranking-state" role="status"></div>
         <ol class="ranking-list" id="ranking-list"></ol>
 
-        <form class="score-form" id="score-form">
-          <h3>기록 등록</h3>
-          <p>게임에서 얻은 점수를 간단히 남겨보세요.</p>
-          <div class="form-row">
-            <label>이름<input id="player-name" name="name" maxlength="20" autocomplete="nickname" required></label>
-            <label>점수<input id="player-score" name="score" type="number" min="0" max="2147483647" step="1" inputmode="numeric" required></label>
-            <button class="primary-button" type="submit">등록</button>
-          </div>
-          <p class="form-message" id="form-message" aria-live="polite"></p>
-        </form>
+        <p class="ranking-note">기록은 게임 종료 후 등록에 동의하면 자동으로 측정됩니다.</p>
       </div>
     </dialog>
 
     <script src="config.js?v=20260819-3"></script>
-    <script type="module" src="app.js?v=20260819-3"></script>
+    <script type="module" src="app.js?v=20260819-4"></script>
   </body>
 </html>

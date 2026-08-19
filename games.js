@@ -7,6 +7,7 @@ export const games = Object.freeze([
     icon: '⛺',
     accent: '#ffb15c',
     genre: 'MERGE PUZZLE',
+    metric: 'score',
   },
   {
     id: 'pulse-drift',
@@ -16,6 +17,7 @@ export const games = Object.freeze([
     icon: '◉',
     accent: '#ff719a',
     genre: 'RHYTHM ACTION',
+    metric: 'score',
   },
   {
     id: 'one-line-labyrinth',
@@ -25,6 +27,7 @@ export const games = Object.freeze([
     icon: '⌁',
     accent: '#66d7c2',
     genre: 'LINE PUZZLE',
+    metric: 'time',
   },
   {
     id: 'tiny-mines',
@@ -34,6 +37,7 @@ export const games = Object.freeze([
     icon: '✦',
     accent: '#ffd75e',
     genre: 'LOGIC PUZZLE',
+    metric: 'time',
   },
   {
     id: 'slide-merge',
@@ -43,5 +47,6 @@ export const games = Object.freeze([
     icon: '◆',
     accent: '#71b7ff',
     genre: 'SLIDE PUZZLE',
+    metric: 'score',
   },
 ]);

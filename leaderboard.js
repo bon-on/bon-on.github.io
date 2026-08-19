@@ -24,22 +24,22 @@ export function createLeaderboardClient(config, fetchImpl = fetch) {
 
   return {
     configured,
-    async list(gameId) {
+    async list(gameId, metric = 'score') {
       const query = new URLSearchParams({
         select: 'id,game_id,player_name,score,played_at',
         game_id: `eq.${gameId}`,
-        order: 'score.desc,played_at.asc',
+        order: metric === 'time' ? 'score.asc,played_at.asc' : 'score.desc,played_at.asc',
         limit: '10',
       });
       const rows = await request(`scores?${query}`, { headers: createHeaders(key) });
-      return sortAndLimitScores(rows);
+      return metric === 'time' ? rows.slice(0, 10) : sortAndLimitScores(rows);
     },
-    async submit(gameId, name, score) {
+    async submit(gameId, name, score, metric = 'score') {
       const value = normalizeScoreInput(name, score);
-      await request('rpc/submit_score', {
+      await request('rpc/submit_result', {
         method: 'POST',
         headers: createHeaders(key, true),
-        body: JSON.stringify({ p_game_id: gameId, p_player_name: value.name, p_score: value.score }),
+        body: JSON.stringify({ p_game_id: gameId, p_player_name: value.name, p_value: value.score, p_metric: metric }),
       });
       return value;
     },

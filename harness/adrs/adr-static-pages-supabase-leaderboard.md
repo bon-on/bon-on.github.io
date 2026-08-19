@@ -14,7 +14,7 @@ GitHub Pages cannot persist runtime writes. A shared leaderboard therefore needs
 
 ## Decision
 
-Serve build-free HTML, CSS, and JavaScript from the organization Pages repository. Store scores in Supabase Postgres. Browser clients use only the publishable key. Public reads use a read-only policy; writes go through a `submit_score` security-definer function that validates inputs, serializes submissions per game, inserts the score, and removes rows below the best ten.
+Serve build-free HTML, CSS, and JavaScript from the organization Pages repository. Store results in Supabase Postgres. Browser clients use only the publishable key. Public reads use a read-only policy; writes go through a `submit_result` security-definer function that validates the game metric, serializes submissions per game, inserts the result, and removes rows below the best ten. Game metadata defines whether higher scores or shorter times rank first.
 
 The game catalog remains a versioned local JavaScript module. Supabase configuration is a separate public configuration file so the portal works before credentials are supplied.
 

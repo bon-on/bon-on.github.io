@@ -49,6 +49,7 @@ footer { width: min(1180px, calc(100% - 40px)); margin: auto; padding: 34px 0; d
 .ranking-state { padding: 45px 10px; color: var(--muted); text-align: center; }
 .ranking-list { margin: 0; padding: 0; list-style: none; }
 .ranking-list li { display: grid; grid-template-columns: 42px 1fr auto; gap: 12px; align-items: center; padding: 13px 8px; border-bottom: 1px solid var(--line); }
+.ranking-note { margin: 22px 0 0; color: var(--muted); font-size: .85rem; text-align: center; }
 .rank-number { color: var(--lime); font-weight: 700; text-align: center; }
 .rank-player { display: flex; flex-direction: column; gap: 2px; }
 .rank-player small { color: var(--muted); }

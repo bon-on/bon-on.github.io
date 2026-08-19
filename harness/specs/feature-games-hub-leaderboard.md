@@ -27,7 +27,8 @@ Bon-on games are deployed as separate GitHub Pages projects. Players need one or
 - List MergeCamp, PulseDrift, OneLineLabyrinth, TinyMines, and SlideMerge.
 - Launch each existing project site without copying its game bundle into the portal.
 - Read shared leaderboard rows from Supabase.
-- Accept player name and integer score and retain only the best ten rows per game.
+- Accept game-produced integer results after an opt-in prompt and retain only the best ten rows per game.
+- Rank MergeCamp, PulseDrift, and SlideMerge by highest score; rank OneLineLabyrinth and TinyMines by shortest completion time.
 - Show name, date, and score ordered by score descending and older record first on ties.
 - Provide database setup and configuration documentation.
 
@@ -51,7 +52,8 @@ Bon-on games are deployed as separate GitHub Pages projects. Players need one or
 - The root page has no marketing hero, promotional slogan, introductory copy, or catalog heading; game choices begin immediately below the header.
 - A deployment cache mismatch does not prevent the game cards from rendering.
 - Selecting a game displays its top ten shared scores.
-- A valid score can be submitted by name and immediately appears when it qualifies.
+- Players cannot type a result in the portal; each game asks after completion whether to register its measured result, then asks only for a name.
+- A valid game-produced result immediately appears when it qualifies.
 - Invalid game ids, blank/oversized names, negative scores, and non-integer scores are rejected by the database.
 - The database contains no more than ten leaderboard rows per game after a submission completes.
 - Supabase secret/service-role credentials are absent from the repository and browser bundle.

@@ -15,7 +15,8 @@ Acceptance criteria:
 - The root page has no marketing hero, promotional slogan, introductory copy, or catalog heading; game choices begin immediately below the header.
 - A deployment cache mismatch does not prevent the game cards from rendering.
 - Selecting a game displays its top ten shared scores.
-- A valid score can be submitted by name and immediately appears when it qualifies.
+- Players cannot type a result in the portal; each game asks after completion whether to register its measured result, then asks only for a name.
+- A valid game-produced result immediately appears when it qualifies.
 - Invalid game ids, blank/oversized names, negative scores, and non-integer scores are rejected by the database.
 - The database contains no more than ten leaderboard rows per game after a submission completes.
 - Supabase secret/service-role credentials are absent from the repository and browser bundle.
