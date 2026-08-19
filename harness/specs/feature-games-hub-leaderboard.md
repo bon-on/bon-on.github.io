@@ -29,7 +29,7 @@ Bon-on games are deployed as separate GitHub Pages projects. Players need one or
 - Read shared leaderboard rows from Supabase.
 - Accept game-produced integer results after an opt-in prompt and retain only the best ten rows per game.
 - Rank MergeCamp, PulseDrift, and SlideMerge by highest score; rank OneLineLabyrinth and TinyMines by shortest completion time.
-- Show name, date, and score ordered by score descending and older record first on ties.
+- Show name, date, and result ordered by each game's metric, with older records first on ties.
 - Provide database setup and configuration documentation.
 
 ## Out of Scope
