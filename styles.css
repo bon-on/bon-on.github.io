@@ -22,10 +22,7 @@ a { color: inherit; }
 .quiet-button { padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.04); }
 .eyebrow, .card-genre { color: var(--lime); font-size: .73rem; font-weight: 700; letter-spacing: .16em; }
 .primary-button, .play-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; border: 0; border-radius: 999px; padding: 14px 20px; color: #102016; background: var(--lime); font-weight: 700; text-decoration: none; cursor: pointer; }
-.games-section { min-height: calc(100vh - 84px); padding: 54px max(20px, calc((100% - 1180px) / 2)) 100px; background: #f0eddf; color: #17241d; }
-.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
-.section-heading h1 { max-width: 720px; margin: 0; font-size: clamp(1.25rem, 2.5vw, 1.75rem); line-height: 1.45; letter-spacing: -.025em; }
-.section-heading > p { color: #667269; }
+.games-section { min-height: calc(100vh - 84px); padding: 32px max(20px, calc((100% - 1180px) / 2)) 100px; background: #f0eddf; color: #17241d; }
 .games-section .eyebrow { color: #56762f; }
 .game-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .game-card { overflow: hidden; border: 1px solid rgba(16,35,27,.1); border-radius: 24px; background: #faf8ef; box-shadow: 0 16px 40px rgba(40,55,45,.07); transition: transform .2s ease, box-shadow .2s ease; }
@@ -71,8 +68,7 @@ button:disabled { cursor: wait; opacity: .6; }
 }
 @media (max-width: 560px) {
   .game-grid { grid-template-columns: 1fr; }
-  .games-section { padding-top: 34px; }
-  .section-heading { align-items: start; flex-direction: column; }
+  .games-section { padding-top: 20px; }
   .card-art { height: 145px; }
   .form-row { grid-template-columns: 1fr; }
   .form-row .primary-button { width: 100%; }

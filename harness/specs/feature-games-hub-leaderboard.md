@@ -23,7 +23,7 @@ Bon-on games are deployed as separate GitHub Pages projects. Players need one or
 ## Scope
 
 - Publish a responsive game catalog at `https://bon-on.github.io/`.
-- Keep the landing content concise: one short description followed immediately by the game choices.
+- Show the game choices immediately below the site header without landing copy or a catalog heading.
 - List MergeCamp, SwipeStack, PulseDrift, OneLineLabyrinth, TinyMines, and SlideMerge.
 - Launch each existing project site without copying its game bundle into the portal.
 - Read shared leaderboard rows from Supabase.
@@ -47,7 +47,7 @@ Bon-on games are deployed as separate GitHub Pages projects. Players need one or
 ## Acceptance Criteria
 
 - The root page displays all six games and each card opens the correct GitHub Pages URL.
-- The root page has no large marketing hero or promotional slogan; game choices are visible near the top.
+- The root page has no marketing hero, promotional slogan, introductory copy, or catalog heading; game choices begin immediately below the header.
 - Selecting a game displays its top ten shared scores.
 - A valid score can be submitted by name and immediately appears when it qualifies.
 - Invalid game ids, blank/oversized names, negative scores, and non-integer scores are rejected by the database.

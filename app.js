@@ -13,8 +13,6 @@ const form = document.querySelector('#score-form');
 const formMessage = document.querySelector('#form-message');
 let selectedGame = games[0];
 
-document.querySelector('#game-count').textContent = games.length;
-
 for (const game of games) {
   const article = document.createElement('article');
   article.className = 'game-card';
