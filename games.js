@@ -9,15 +9,6 @@ export const games = Object.freeze([
     genre: 'MERGE PUZZLE',
   },
   {
-    id: 'swipe-stack',
-    title: 'SwipeStack',
-    description: '손끝으로 밀고 쌓으며 가장 높은 스택에 도전하세요.',
-    url: 'https://bon-on.github.io/SwipeStack/',
-    icon: '▤',
-    accent: '#a997ff',
-    genre: 'SWIPE PUZZLE',
-  },
-  {
     id: 'pulse-drift',
     title: 'PulseDrift',
     description: '리듬을 타고 궤도를 누비며 아슬아슬한 드리프트를 즐겨요.',
