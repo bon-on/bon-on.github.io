@@ -41,5 +41,7 @@ test('landing page leads directly with a concise game selection', async () => {
   const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   assert.doesNotMatch(html, /잠깐의 틈|SIX SMALL WORLDS|class="hero"|Bon-on의 게임을 골라/);
   assert.match(html, /<section class="games-section" id="games" aria-label="게임 선택">\s*<div class="game-grid"/);
+  assert.match(html, /app\.js\?v=\d{8}-\d+/);
+  assert.match(html, /styles\.css\?v=\d{8}-\d+/);
   assert.ok(html.indexOf('id="games"') < html.indexOf('id="game-grid"'));
 });

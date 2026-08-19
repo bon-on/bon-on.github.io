@@ -43,11 +43,13 @@ Bon-on games are deployed as separate GitHub Pages projects. Players need one or
 - Ship only the Supabase publishable key; never expose privileged credentials.
 - Preserve game availability when the leaderboard backend is missing or unavailable.
 - Keep at most ten database rows per game after each serialized submission.
+- Version entry-point assets together so a cached script cannot break a newly deployed HTML shell.
 
 ## Acceptance Criteria
 
 - The root page displays all six games and each card opens the correct GitHub Pages URL.
 - The root page has no marketing hero, promotional slogan, introductory copy, or catalog heading; game choices begin immediately below the header.
+- A deployment cache mismatch does not prevent the game cards from rendering.
 - Selecting a game displays its top ten shared scores.
 - A valid score can be submitted by name and immediately appears when it qualifies.
 - Invalid game ids, blank/oversized names, negative scores, and non-integer scores are rejected by the database.
