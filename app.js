@@ -9,7 +9,9 @@ const tabs = document.querySelector('#ranking-tabs');
 const list = document.querySelector('#ranking-list');
 const state = document.querySelector('#ranking-state');
 const title = document.querySelector('#ranking-title');
-let selectedGame = games[0];
+// Games without a metric have no shared leaderboard.
+const rankedGames = games.filter((game) => game.metric);
+let selectedGame = rankedGames[0];
 
 for (const game of games) {
   const article = document.createElement('article');
@@ -23,13 +25,13 @@ for (const game of games) {
       <p>${game.description}</p>
       <div class="card-actions">
         <a class="play-button" href="${game.url}">플레이 <span aria-hidden="true">↗</span></a>
-        <button class="rank-button" type="button" data-ranking="${game.id}">순위</button>
+        ${game.metric ? `<button class="rank-button" type="button" data-ranking="${game.id}">순위</button>` : ''}
       </div>
     </div>`;
   gameGrid.append(article);
 }
 
-for (const game of games) {
+for (const game of rankedGames) {
   const button = document.createElement('button');
   button.type = 'button';
   button.dataset.game = game.id;
@@ -72,7 +74,7 @@ async function loadScores() {
   }
 }
 
-async function openRanking(game = games[0]) {
+async function openRanking(game = rankedGames[0]) {
   if (!dialog.open) dialog.showModal();
   await selectGame(game);
 }
@@ -80,7 +82,7 @@ async function openRanking(game = games[0]) {
 gameGrid.addEventListener('click', (event) => {
   const button = event.target.closest('[data-ranking]');
   if (!button) return;
-  openRanking(games.find((game) => game.id === button.dataset.ranking));
+  openRanking(rankedGames.find((game) => game.id === button.dataset.ranking));
 });
 
 document.querySelector('#open-global-ranking').addEventListener('click', () => openRanking());

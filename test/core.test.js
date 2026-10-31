@@ -4,12 +4,26 @@ import { readFile } from 'node:fs/promises';
 import { games } from '../games.js';
 import { normalizeScoreInput, sortAndLimitScores } from '../core.js';
 
-test('catalog has five unique secure GitHub Pages games', () => {
-  assert.equal(games.length, 5);
+test('catalog has seven unique secure GitHub Pages games', () => {
+  assert.equal(games.length, 7);
   assert.equal(new Set(games.map((game) => game.id)).size, games.length);
   assert.equal(games.some((game) => game.id === 'swipe-stack'), false);
   for (const game of games) {
     assert.match(game.url, /^https:\/\/bon-on\.github\.io\/[A-Za-z]+\/$/);
+  }
+});
+
+test('only the five leaderboard games declare a ranking metric', () => {
+  const ranked = games.filter((game) => game.metric).map((game) => [game.id, game.metric]);
+  assert.deepEqual(ranked, [
+    ['merge-camp', 'score'],
+    ['pulse-drift', 'score'],
+    ['one-line-labyrinth', 'time'],
+    ['tiny-mines', 'time'],
+    ['slide-merge', 'score'],
+  ]);
+  for (const game of games.filter((game) => !game.metric)) {
+    assert.equal(game.metric, null);
   }
 });
 

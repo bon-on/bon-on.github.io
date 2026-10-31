@@ -50,8 +50,8 @@ Content-Type: application/json
 
 ```sh
 npm test
-node /Users/junsik.park/sources/harness-lab/dist/index.js audit . --format md
-node /Users/junsik.park/sources/harness-lab/dist/index.js plan harness/specs/feature-games-hub-leaderboard.md --format text
+node <harness-lab>/dist/index.js audit . --format md
+node <harness-lab>/dist/index.js plan harness/specs/feature-games-hub-leaderboard.md --format text
 ```
 
 `main` 브랜치 push 시 GitHub Actions가 테스트 후 `https://bon-on.github.io/`에 배포합니다.
