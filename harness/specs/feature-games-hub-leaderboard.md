@@ -24,8 +24,8 @@ Bon-on games are deployed as separate GitHub Pages projects. Players need one or
 
 - Publish a responsive game catalog at `https://bon-on.github.io/`.
 - Show the game choices immediately below the site header without landing copy or a catalog heading.
-- List MergeCamp, PulseDrift, OneLineLabyrinth, TinyMines, SlideMerge, PourSort, and NonoGrid.
-- PourSort and NonoGrid have no shared leaderboard (`metric: null`): their cards show no ranking button and they are absent from the ranking tabs.
+- List MergeCamp, PulseDrift, OneLineLabyrinth, TinyMines, SlideMerge, PourSort, NonoGrid, and SwipeStack.
+- PourSort, NonoGrid, and SwipeStack have no shared leaderboard (`metric: null`): their cards show no ranking button and they are absent from the ranking tabs.
 - Launch each existing project site without copying its game bundle into the portal.
 - Read shared leaderboard rows from Supabase.
 - Accept game-produced integer results after an opt-in prompt and retain only the best ten rows per game.
@@ -49,7 +49,7 @@ Bon-on games are deployed as separate GitHub Pages projects. Players need one or
 
 ## Acceptance Criteria
 
-- The root page displays all seven maintained games and each card opens the correct GitHub Pages URL.
+- The root page displays all eight maintained games and each card opens the correct GitHub Pages URL.
 - Only games with a ranking metric offer a ranking button and a ranking tab.
 - The root page has no marketing hero, promotional slogan, introductory copy, or catalog heading; game choices begin immediately below the header.
 - A deployment cache mismatch does not prevent the game cards from rendering.

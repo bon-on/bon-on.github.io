@@ -69,4 +69,14 @@ export const games = Object.freeze([
     genre: 'NONOGRAM',
     metric: null,
   },
+  {
+    id: 'swipe-stack',
+    title: 'SwipeStack',
+    description: '움직이는 상자를 정확한 타이밍에 쌓아 높은 탑에 도전하세요.',
+    url: 'https://bon-on.github.io/SwipeStack/',
+    icon: '▤',
+    accent: '#64d8cb',
+    genre: 'TIMING ARCADE',
+    metric: null,
+  },
 ]);

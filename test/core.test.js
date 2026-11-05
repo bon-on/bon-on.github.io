@@ -4,10 +4,10 @@ import { readFile } from 'node:fs/promises';
 import { games } from '../games.js';
 import { normalizeScoreInput, sortAndLimitScores } from '../core.js';
 
-test('catalog has seven unique secure GitHub Pages games', () => {
-  assert.equal(games.length, 7);
+test('catalog has eight unique secure GitHub Pages games', () => {
+  assert.equal(games.length, 8);
   assert.equal(new Set(games.map((game) => game.id)).size, games.length);
-  assert.equal(games.some((game) => game.id === 'swipe-stack'), false);
+  assert.equal(games.find((game) => game.id === 'swipe-stack')?.url, 'https://bon-on.github.io/SwipeStack/');
   for (const game of games) {
     assert.match(game.url, /^https:\/\/bon-on\.github\.io\/[A-Za-z]+\/$/);
   }
